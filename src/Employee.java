@@ -3,7 +3,7 @@ public class Employee {
         private int Department;
         private float Salary;
         private static int Counter;
-        private int Id;
+        private final int Id;
 
         public int getId() { return this.Id; }
         public String getFIO() { return this.FIO; }
@@ -21,7 +21,6 @@ public class Employee {
             Id = ++Counter;
         }
 
-
         @Override
         public String toString() {
             return "Id: " + Id + " Fio: " + FIO + " Dept: " + Department + " Salary: " + Salary;
@@ -29,7 +28,6 @@ public class Employee {
         public String toStringFio () {
             return "Ф.И.О" + FIO;
         }
-
 
         public static void main(String[] args) {
             Employee[] empl = new Employee[4];
@@ -43,7 +41,5 @@ public class Employee {
                 System.out.println(e);
             }
         }
-
-
 }
 
