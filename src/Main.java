@@ -10,9 +10,7 @@ public class Main {
         System.out.println(employee4);
         Employee employee5 = new Employee("Поднебесная Виолетта Евгеньевна", 5, 54200);
         System.out.println(employee5);
-        sumSalarys();
-        minMuxSalary();
-        averageSalary();
+        conclusion();
         System.out.println("Ф.И.О. " + employee1.getFIO());
         System.out.println("Ф.И.О. " + employee2.getFIO());
         System.out.println("Ф.И.О. " + employee3.getFIO());
@@ -20,34 +18,33 @@ public class Main {
         System.out.println("Ф.И.О. " + employee5.getFIO());
 
     }
+
+    private static Employee[] employees = new Employee[4];{
+            employees[0] = new Employee("Fam1 Name1 SName1", 1, 25500),
+            employees[1] = new Employee("Fam2 Name2 SName2", 2, 31450),
+            employees[2] = new Employee("Fam3 Name3 SName3", 3, 40200),
+            employees[3] = new Employee("Fam4 Name4 SName4", 4, 34900),
+            employees[4] = new Employee("Fam5 Name5 SName5", 5, 52400),
+};
+
+
     public static void sumSalarys() {
-        int[] arr = new int[5];
-        arr [0] = 25500;
-        arr [1] = 31450;
-        arr [2] = 40200;
-        arr [3] = 34900;
-        arr [4] = 54200;
+        Employee[] employees = new Employee[4];
         int sum = 0;
-        for (int i : arr) {
-            sum = sum + i;
-        }
-        System.out.println( "Сумма затрат на зарплаты в месяц " + sum);
+        for (Employee i : employees) sum += i;
+        System.out.println("Сумма затрат на зарплаты в месяц " + sum);
     }
 
+
     public static void minMuxSalary() {
-        int[] arr = new int[5];
-        arr [0] = 25500;
-        arr [1] = 31450;
-        arr [2] = 40200;
-        arr [3] = 34900;
-        arr [4] = 54200;
-        var maxSalary = arr[0];
-        int minSalary = arr[0];
-        for (int val : arr) {
+        Employee[] employees = new Employee[4];
+        var maxSalary = employees[0];
+        Employee minSalary = employees[0];
+        for (Employee val : employees) {
             if (val > maxSalary) {
                 maxSalary = val;
             }
-            if (val < minSalary) {
+            if (minSalary > val) {
                 minSalary = val;
             }
         }
@@ -56,18 +53,17 @@ public class Main {
     }
 
     public static void averageSalary() {
-        int[] arr = new int[5];
-        arr [0] = 25500;
-        arr [1] = 31450;
-        arr [2] = 40200;
-        arr [3] = 34900;
-        arr [4] = 54200;
+        Employee[] employees = new Employee[4];
         int sum = 0;
-        for (int i : arr) {
-            sum = sum + i;
-        }
-        sum = sum / arr.length;
-        System.out.println( "Среднее значение зарплат " + sum);
+        for (Employee i : employees) sum = sum + i;
+        sum = sum / employees.length;
+        System.out.println("Среднее значение зарплат " + sum);
+    }
+
+    public static void conclusion() {
+        sumSalarys();
+        minMuxSalary();
+        averageSalary();
     }
 
 }
